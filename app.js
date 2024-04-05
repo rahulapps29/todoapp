@@ -1,7 +1,8 @@
+const path = require("path");
 const express = require("express");
 const app = express();
-const tasks = require("./routes/tasks");
-const connectDB = require("./db/connect");
+const tasks = require(path.resolve(__dirname, "routes", "tasks.js"));
+const connectDB = require(path.resolve(__dirname, "db", "connect.js"));
 require("dotenv").config();
 const notFound = require("./middleware/not-found");
 const errorHandlerMiddlerware = require("./middleware/error-handler");
