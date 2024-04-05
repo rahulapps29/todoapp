@@ -4,8 +4,12 @@ let tlength = t.substring(t.lastIndexOf("\\") + 1);
 tlength = tlength.length;
 t = t.substring(0, t.length - tlength - 1);
 const{ Task, Luthra, ListItem } = require(path.resolve(t, "models", "Task.js"));
-const asyncWrapper = require("../middleware/async");
-const { createCustomError } = require("../errors/custom-error");
+const asyncWrapper = require(path.resolve(t, "middleware", "async.js"));
+const { createCustomError } = require(path.resolve(
+  t,
+  "errors",
+  "custom-error.js"
+));
 const getAllTasks = asyncWrapper(async (req, res) => {
   const tasks = await Task.find({});
   res.status(200).json({ tasks });
