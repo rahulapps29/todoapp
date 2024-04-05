@@ -1,4 +1,9 @@
-const { Task, Luthra, ListItem } = require("../models/Task");
+const path = require("path");
+let t = __dirname;
+let tlength = t.substring(t.lastIndexOf("\\") + 1);
+tlength = tlength.length;
+t = t.substring(0, t.length - tlength - 1);
+const{ Task, Luthra, ListItem } = require(path.resolve(t, "models", "Task.js"));
 const asyncWrapper = require("../middleware/async");
 const { createCustomError } = require("../errors/custom-error");
 const getAllTasks = asyncWrapper(async (req, res) => {
