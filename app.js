@@ -6,7 +6,7 @@ const connectDB = require(path.resolve(__dirname, "db", "connect.js"));
 require("dotenv").config();
 const notFound = require(path.resolve(__dirname, "middleware", "not-found.js"));
 const errorHandlerMiddleware = require(path.resolve(__dirname, "middleware","error-handler.js"));
-app.use(express.static(path.resolve(__dirname, "public")));
+app.use(express.static( "public"));
 app.use(express.json());
 app.use("/api/v1/tasks", tasks);
 app.use(notFound);
